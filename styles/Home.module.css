@@ -1,0 +1,22 @@
+.container {
+  @apply h-screen pt-20 pb-20 px-16;
+  min-width: 81.25rem;
+}
+
+.header {
+  @apply flex items-center justify-between mb-16;
+}
+
+.title {
+  @apply not-italic font-semibold text-4xl leading-10 text-slate-800;
+}
+
+.filter {
+  @apply rounded-lg text-gray-900 flex items-center justify-between not-italic font-normal text-2xl leading-7;
+  min-width: 10rem;
+}
+
+.content {
+  @apply grid grid-cols-3 gap-32 overflow-scroll;
+  height: calc(100% - 5rem);
+}

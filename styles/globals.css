@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer base {
+  :root {
+    --color-background: #eff6ff;
+    --color-text: #1e293b;
+
+    --color-primary: #3b82f6;
+    --muted-color-primary: #bfdbfe;
+    --super-muted-color-primary: #dbeafe;
+
+    --color-secondary: #0ea5e9;
+    --muted-color-secondary: #bae6fd;
+    --super-muted-color-secondary: #e0f2fe;
+
+    --color-accent: #10b981;
+    --muted-color-accent: #a7f3d0;
+    --super-muted-color-accent: #d1fae5;
+  }
+} */
+
+body {
+  @apply bg-blue-50;
+  font-family: Montserrat, sans-serif;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

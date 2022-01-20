@@ -1,0 +1,43 @@
+.child {
+  @apply w-full h-full p-7 rounded-lg overflow-y-hidden;
+}
+
+.childHeader {
+  @apply flex items-center justify-between mb-6;
+}
+
+.childTitle {
+  @apply not-italic font-semibold text-2xl leading-7 tracking-wide flex justify-start items-center;
+  min-width: 9.375rem;
+}
+
+.childCount {
+  @apply flex justify-center items-center h-10 w-10 rounded-lg not-italic font-semibold text-2xl leading-7;
+}
+
+.addButton {
+  @apply w-full h-16 flex justify-center items-center rounded-lg mb-5 border-2 border-solid not-italic font-medium text-6xl leading-10;
+}
+
+.cardNoteContainer {
+  @apply py-5 border-y-2 border-solid overflow-y-scroll;
+  height: calc(100% - 9.5rem);
+  min-height: 84px;
+}
+
+.cardNote {
+  @apply h-72 rounded-lg bg-slate-100 mb-8 flex flex-col gap-6 p-5 last:mb-2;
+  max-height: 37.75rem;
+  width: 95%;
+  margin-left: 2.5%;
+}
+
+.cardTitle {
+  @apply text-slate-800 block not-italic font-bold text-xl leading-6 tracking-wide;
+}
+
+.cardDescription {
+  @apply flex not-italic  font-semibold text-lg leading-6 overflow-hidden text-gray-500;
+  text-overflow: ellipsis;
+  height: calc(100%-4.625rem);
+}
