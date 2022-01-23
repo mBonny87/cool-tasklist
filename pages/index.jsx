@@ -6,10 +6,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { lists } from "../src/constants/lists";
 import TaskColumn from "../src/components/TaskColumn";
+import { gql } from "@apollo/client";
+import client from "../src/services/apolloService";
 
-export default function Home() {
+export default function Home({ tasks }) {
   const { container, header, title, filter, content } = styles;
-
+  console.log(tasks);
   return (
     <div className={container}>
       <Head>
@@ -26,9 +28,35 @@ export default function Home() {
       </div>
       <div className={content}>
         {lists.map((x) => (
-          <TaskColumn key={x.title} taskColumn={x} styles={styles}></TaskColumn>
+          <TaskColumn
+            key={x.title}
+            taskColumn={x}
+            tasks={tasks.filter((y) => y.statusId === x.type)}
+          ></TaskColumn>
         ))}
       </div>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const { data } = await client.query({
+    query: gql`
+      query GetTasks {
+        tasks: tasks:t_task(order_by: { started: asc }) {
+          title
+          description
+          statusId: status_id
+          started
+          closed
+        }
+      }
+    `,
+  });
+
+  return {
+    props: {
+      tasks: data.tasks,
+    },
+  };
 }

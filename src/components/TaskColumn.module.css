@@ -37,7 +37,7 @@
 }
 
 .cardDescription {
-  @apply flex not-italic  font-semibold text-lg leading-6 overflow-hidden text-gray-500;
+  @apply flex not-italic  font-semibold text-lg leading-6 overflow-hidden text-slate-500;
   text-overflow: ellipsis;
   height: calc(100%-4.625rem);
 }

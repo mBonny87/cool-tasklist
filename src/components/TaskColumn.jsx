@@ -3,7 +3,7 @@ import { taskList } from "../constants/taskList";
 import { useHover } from "../hooks/useHover";
 import styles from "./TaskColumn.module.css";
 
-const TaskColumn = ({ taskColumn }) => {
+const TaskColumn = ({ taskColumn, tasks }) => {
   const [hoverRef, isHovering] = useHover();
   const {
     child,
@@ -16,18 +16,18 @@ const TaskColumn = ({ taskColumn }) => {
     cardTitle,
     cardDescription,
   } = styles;
-  const { title, standard, muted, superMuted, hover, tasks, border, type } =
+  const { title, standard, muted, superMuted, hover, border, type } =
     taskColumn;
 
   // todo implement with query
-  const columnTasks = taskList.filter((x) => x.status === type);
+  // const columnTasks = taskList.filter((x) => x.status === type);
 
   return (
     <div key={title} className={`${child} ${superMuted}`}>
       <div className={childHeader}>
         <span className={`${childTitle} ${standard}`}>{title}</span>
         <span className={`${childCount} ${muted} ${standard}`}>
-          {columnTasks.length}
+          {tasks.length}
         </span>
       </div>
       <button
@@ -39,7 +39,7 @@ const TaskColumn = ({ taskColumn }) => {
         +
       </button>
       <div className={`${cardNoteContainer} ${border}`}>
-        {columnTasks.map((task) => (
+        {tasks.map((task) => (
           // key should be the id of the task
           <div key={task.title} className={`${cardNote}`}>
             <span className={`${cardTitle}`}>{task.title}</span>
